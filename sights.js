@@ -10,6 +10,15 @@ const https = require("https");
 const xml2js = require('xml2js');
 client.memos = require("./memos.json");
 
+function CHECKADMINISTRATOR(MESSAGE) {
+    var isADMIN = true;
+    if (!MESSAGE.member.hasPermission("ADMINISTRATOR")) {
+        MESSAGE.channel.send("Nice try, " + MESSAGE.author.username + ", but you don't have the right permissions to use these commands!")
+        isADMIN = false;
+    }
+    return isADMIN;
+}
+
 client.on("message", (message) => {
     if (message.author.bot) return;
     msg = message.content.toLowerCase();
@@ -91,6 +100,16 @@ client.on("message", (message) => {
     // Emoji Commands
     if (msg.startsWith("👀")) {
         message.channel.send("Hmm. :eyes:");
+    };
+    // Administrator Commands
+    if (CHECKADMINISTRATOR(msg)) { 
+        if (msg.startsWith(prefix + "purge")) {
+            let numMsgDelete = Number(message.content.slice(prefix.length + 6));
+            if (numMsgDelete == NaN) { message.channel.send(":regional_indicator_x: Not a valid number!") }
+            numMsgDelete = Math.round(numMsgDelete);
+            message.channel.bulkDelete(numMsgDelete)
+                .catch(console.error);
+        };
     };
 });
 
