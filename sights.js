@@ -10,7 +10,6 @@ const https = require("https");
 const xml2js = require('xml2js');
 client.memos = require("./memos.json");
 
-function CHE
 client.on("message", (message) => {
     if (message.author.bot) return;
     msg = message.content.toLowerCase();
