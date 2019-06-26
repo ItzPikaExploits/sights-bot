@@ -1,6 +1,5 @@
 const discord = require('discord.js');
 var client = new discord.Client;
-const token = "NTkyODk5NTUyMzg3MDA2NDc3.XRGEWQ.rIJsMrI8Bf_5jdxQ-FOv7lWzies";
 client.on("ready", () => {
     console.log("Ready!");
     client.user.setGame("discord.me/sights | ;");
@@ -95,4 +94,4 @@ client.on("message", (message) => {
     };
 });
 
-client.login(token);
+client.login(process.env.BOT_TOKEN);
