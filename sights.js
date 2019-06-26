@@ -92,7 +92,6 @@ client.on("message", (message) => {
     if (msg.startsWith("👀")) {
         message.channel.send("Hmm. :eyes:");
     };
-    // Administrator Commands
 });
 
 client.login(process.env.BOT_TOKEN);
