@@ -95,10 +95,6 @@ client.on("message", (message) => {
         for (var i = 0; i < tagestosplit.length; i++) {
             tagestosplit[i] = tagestosplit[i].trim();
             tagestosplit[i] = tagestosplit[i].replace(/\s/g, "_");
-            if(estoBanList.indexOf(tagestosplit[i]) != -1){
-                message.channel.send(":regional_indicator_x: No. Stop it.");
-                return;
-            }
         }
         tagesto = tagestosplit.join("+");
         if (message.channel.type === "dm" || message.channel.name.indexOf("the_art_gallery") != -1 || message.channel.name.indexOf("furry") != -1 || message.channel.name.indexOf("2am") != -1 || message.channel.name.indexOf("nsfw") != -1) {
@@ -114,7 +110,7 @@ client.on("message", (message) => {
         var estoHeader = {
             url: 'https://e621.net/post/index.json?tags=order:random+' + tagesto,
             headers: {
-                'User-Agent': 'Yoshi-Bot/${process.version} (by NeoNinetales on e621)'
+                'User-Agent': 'SIGHTS/${process.version} (by NeoNinetales on e621)'
             }
         }
         request(estoHeader,
