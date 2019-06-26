@@ -109,11 +109,11 @@ client.on("message", (message) => {
                     if(postCount > 0) {
                         var picNum = Math.floor(Math.random() * postCount) + 0;
                         var e621Pic = estoThing[0].file_url.toString();
-                        console.log(estoThing[0].file_url.toString());
+                        console.log(e621Pic);
                         let embed = new discord.RichEmbed()
                             .setColor("LUMINOUS_VIVID_PINK")
-                            .setTitle("Rule34: " + editedmessage)
-                            .setFooter(result.posts.post[picNum].$.file_url)
+                            .setTitle("E621: " + editedmessage)
+                            .setFooter(e621Pic)
                             .setImage(e621Pic)
                             .setDescription("Enjoy~! OwO")
                         message.channel.send(embed)
