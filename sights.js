@@ -88,6 +88,47 @@ client.on("message", (message) => {
                 console.log("Got an error: ", e);
         });
     };
+    if (msg.startsWith(prefix + "e621")) {
+        editedmessage = message.content.slice(prefix.length + 5)
+        var url = 'https://e621.net/post/index.json?tags=order:random+' + editedmessage;
+ 
+        https.get(url, function(res){
+            var body = '';
+   
+            res.on('data', function(chunk){
+                body += chunk;
+            });
+   
+            res.on('end', function(){
+                var parser = new xml2js.Parser();
+                parser.parseString(body, function (err, result) {
+                    var postCount = result.posts.$.count - 1;
+                    if(postCount > 100) {
+                        postCount = 100;
+                    }
+                    if(postCount > 0) {
+                        var picNum = Math.floor(Math.random() * postCount) + 0;
+                        var e621Pic = estoThing[0].file_url.toString();
+                        console.log(estoThing[0].file_url.toString());
+                        let embed = new discord.RichEmbed()
+                            .setColor("LUMINOUS_VIVID_PINK")
+                            .setTitle("Rule34: " + editedmessage)
+                            .setFooter(result.posts.post[picNum].$.file_url)
+                            .setImage(e621Pic)
+                            .setDescription("Enjoy~! OwO")
+                        message.channel.send(embed)
+                   
+                    } else {
+                        console.log("Nothing found:", editedmessage);
+                        message.channel.send(":regional_indicator_x: Nobody here but us chickens!");
+                    }
+
+                    });
+                });
+            }).on('error', function(e){
+                console.log("Got an error: ", e);
+        });
+    };
     // Emoji Commands
     if (msg.startsWith("👀")) {
         message.channel.send("Hmm. :eyes:");
