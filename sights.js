@@ -17,7 +17,7 @@ client.on("message", (message) => {
     // Prefix Commands
         // No Value Commands
     if (msg.startsWith(prefix + "check")) {
-        message.reply("the bot is active! :white_check_mark:")
+        message.reply("the bot is active and running V16! :white_check_mark:")
     };
     if (msg.startsWith(prefix + "invite")) {
         message.channel.send("Get your friends in! https://discord.me/sights")
@@ -93,15 +93,6 @@ client.on("message", (message) => {
         message.channel.send("Hmm. :eyes:");
     };
     // Administrator Commands
-    if (message.member.hasPermission("ADMINISTRATOR")) {
-        if (msg.startsWith(prefix + "purge")) {
-            let numMsgDelete = Number(message.content.slice(prefix.length + 6));
-            if (isNaN(numMsgDelete)) { message.channel.send(":regional_indicator_x: Not a valid number!") }
-            numMsgDelete = Math.round(numMsgDelete);
-            message.channel.bulkDelete(numMsgDelete)
-                .catch(console.error);
-        };
-    };
 });
 
 client.login(process.env.BOT_TOKEN);
