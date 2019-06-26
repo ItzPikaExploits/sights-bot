@@ -105,7 +105,7 @@ client.on("message", (message) => {
     if (CHECKADMINISTRATOR(msg)) { 
         if (msg.startsWith(prefix + "purge")) {
             let numMsgDelete = Number(message.content.slice(prefix.length + 6));
-            if (numMsgDelete == NaN) { message.channel.send(":regional_indicator_x: Not a valid number!") }
+            if (isNaN(numMsgDelete)) { message.channel.send(":regional_indicator_x: Not a valid number!") }
             numMsgDelete = Math.round(numMsgDelete);
             message.channel.bulkDelete(numMsgDelete)
                 .catch(console.error);
