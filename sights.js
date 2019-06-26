@@ -10,6 +10,8 @@ const https = require("https");
 const xml2js = require('xml2js');
 client.memos = require("./memos.json");
 
+global.servers = {};
+
 client.on("message", (message) => {
     if (message.author.bot) return;
     msg = message.content.toLowerCase();
@@ -17,7 +19,7 @@ client.on("message", (message) => {
     // Prefix Commands
         // No Value Commands
     if (msg.startsWith(prefix + "check")) {
-        message.reply("the bot is active and running V16! :white_check_mark:")
+        message.channel.send("The bot is active and running V16! :white_check_mark:")
     };
     if (msg.startsWith(prefix + "invite")) {
         message.channel.send("Get your friends in! https://discord.me/sights")
@@ -41,6 +43,19 @@ client.on("message", (message) => {
             if (err) throw err;
             message.channel.send("Memo has been saved!");
         });
+    };
+    if (msg.startsWith(prefix + "joinvc")) {
+        let VC = message.member.voiceChannel;
+        if (VC) {
+            if (!message.guild.voiceConnection) {
+                VC.join()
+                    .then(connection => {
+                        message.channel.send(":white_check_mark: Joined " + VC.Name)
+                    })
+            }
+        } else {
+            message.channel.send(":regional_indicator_x: You must be in a voice channel for me to join! ;c")
+        }
     };
     if (msg.startsWith(prefix + "readmemo")) {
         let _MEMO = client.memos[message.author.username].message;
@@ -68,11 +83,11 @@ client.on("message", (message) => {
                     if(postCount > 0) {
                         var picNum = Math.floor(Math.random() * postCount) + 0;
                         var r34Pic = result.posts.post[picNum].$.file_url;
-                        // console.log(result.posts.post[picNum].$.file_url);
+                        // console.log(r34Pic);
                         let embed = new discord.RichEmbed()
                             .setColor("LUMINOUS_VIVID_PINK")
                             .setTitle("Rule34: " + editedmessage)
-                            .setFooter(result.posts.post[picNum].$.file_url)
+                            .setFooter(r34Pic)
                             .setImage(r34Pic)
                             .setDescription("Enjoy~!")
                         message.channel.send(embed)
