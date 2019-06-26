@@ -88,7 +88,7 @@ client.on("message", (message) => {
                 console.log("Got an error: ", e);
         });
     };
-    if (msg.startsWith(prefix + "e621")) {
+    if (msg.startsWith(prefix + "e6")) {
         params = message.content.slice(prefix.length + 5)
         var tagesto = "";
         var tagestosplit = params.split(",");
@@ -107,18 +107,28 @@ client.on("message", (message) => {
                 return;
             }
         }
-        var estoThing = JSON.parse(body);
-        if (typeof (estoThing[0]) != "undefined") {
-            let embed = new discord.RichEmbed()
-                .setColor("LUMINOUS_VIVID_PINK")
-                .setTitle("E621: " + editedmessage)
-                .setFooter(estoThing[0].file_url.toString())
-                .setImage("https://e621.net/post/show/" + estoThing[0].id.toString())
-                .setDescription("Enjoy~! OwO")
-        }
-        else {
-            msg.channel.send("No images found. Try different tags.")
-        }
+        https.get(url, function(res){
+            var body = '';
+            res.on('data', function(chunk){
+                body += chunk;
+            });
+            res.on('end', function(){
+                var estoThing = JSON.parse(body);
+                if (typeof (estoThing[0]) != "undefined") {
+                    let embed = new discord.RichEmbed()
+                        .setColor("LUMINOUS_VIVID_PINK")
+                        .setTitle("E621: " + editedmessage)
+                        .setFooter(estoThing[0].file_url.toString())
+                        .setImage("https://e621.net/post/show/" + estoThing[0].id.toString())
+                        .setDescription("Enjoy~! OwO")
+                    message.channel.send(embed)
+                } else {
+                    msg.channel.send(":regional_indicator_x: No images found. Try different tags.")
+                }
+                });
+            }).on('error', function(e){
+                console.log("Got an error: ", e);
+        });
     };
     // Emoji Commands
     if (msg.startsWith("👀")) {
