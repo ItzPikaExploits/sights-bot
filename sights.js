@@ -107,29 +107,18 @@ client.on("message", (message) => {
                 return;
             }
         }
-        var estoHeader = {
-            url: 'https://e621.net/post/index.json?tags=order:random+' + tagesto,
-            headers: {
-                'User-Agent': 'SIGHTS/${process.version} (by NeoNinetales on e621)'
-            }
+        var estoThing = JSON.parse(body);
+        if (typeof (estoThing[0]) != "undefined") {
+            let embed = new discord.RichEmbed()
+                .setColor("LUMINOUS_VIVID_PINK")
+                .setTitle("E621: " + editedmessage)
+                .setFooter(estoThing[0].file_url.toString())
+                .setImage("https://e621.net/post/show/" + estoThing[0].id.toString())
+                .setDescription("Enjoy~! OwO")
         }
-        request(estoHeader,
-        function (error, response, body) {
-            if (!error && response.statusCode == 200) {
-                var estoThing = JSON.parse(body);
-                if (typeof (estoThing[0]) != "undefined") {
-                    let embed = new discord.RichEmbed()
-                        .setColor("LUMINOUS_VIVID_PINK")
-                        .setTitle("E621: " + editedmessage)
-                        .setFooter(estoThing[0].file_url.toString())
-                        .setImage("https://e621.net/post/show/" + estoThing[0].id.toString())
-                        .setDescription("Enjoy~! OwO")
-                }
-                else {
-                    msg.channel.send("No images found. Try different tags.")
-                }
-            }
-        });
+        else {
+            msg.channel.send("No images found. Try different tags.")
+        }
     };
     // Emoji Commands
     if (msg.startsWith("👀")) {
