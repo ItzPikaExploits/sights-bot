@@ -10,8 +10,6 @@ const https = require("https");
 const xml2js = require('xml2js');
 client.memos = require("./memos.json");
 
-global.servers = {};
-
 client.on("message", (message) => {
     if (message.author.bot) return;
     msg = message.content.toLowerCase();
@@ -43,19 +41,6 @@ client.on("message", (message) => {
             if (err) throw err;
             message.channel.send("Memo has been saved!");
         });
-    };
-    if (msg.startsWith(prefix + "joinvc")) {
-        let VC = message.member.voiceChannel;
-        if (VC) {
-            if (!message.guild.voiceConnection) {
-                VC.join()
-                    .then(connection => {
-                        message.channel.send(":white_check_mark: Joined " + VC.Name)
-                    })
-            }
-        } else {
-            message.channel.send(":regional_indicator_x: You must be in a voice channel for me to join! ;c")
-        }
     };
     if (msg.startsWith(prefix + "readmemo")) {
         let _MEMO = client.memos[message.author.username].message;
