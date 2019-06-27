@@ -17,7 +17,7 @@ client.on("message", (message) => {
     // Prefix Commands
         // No Value Commands
     if (msg.startsWith(prefix + "check")) {
-        message.channel.send("The bot is active and running V16! :white_check_mark:")
+        message.channel.send("The bot is active and running v1.3.2! :white_check_mark:")
     };
     if (msg.startsWith(prefix + "invite")) {
         message.channel.send("Get your friends in! https://discord.me/sights")
