@@ -31,6 +31,24 @@ client.on("message", (message) => {
             .setDescription("The yandere thinks that you deserve this.")
         message.channel.send(embed)
     };
+    if (msg.startsWith(prefix + "obfuscate")) {
+        let embed = new discord.RichEmbed()
+        .setColor("AQUA")
+        .setTitle("Obfuscation Instructions")
+        .setDescription(`
+        :arrow_forward: Request a whitelist by private messaging the owner!
+        :arrow_forward: Install the plugin! https://www.roblox.com/library/3362835374/SIGHTS-Obfuscator
+        :arrow_forward: Click the button in the plugins tab in studio and then enter your Discord ID!
+        :arrow_forward: Submit the key and then select a script you want to obfuscate in the object explorer!
+        :arrow_forward: Click on the button and then in the plugins tab in studio again to obfuscate!
+        :white_check_mark: Now you have your obfuscated script!
+        `)
+        .setFooter("If you find a way to crack the source, please tell the developers! ")
+        message.channel.send(`
+        Shortcuts to the owner's Discord DMs!
+        <@307713559473815562>
+        ` + embed)
+    }
         // Value Commands
     if (msg.startsWith(prefix + "memo")) {
         editedmessage = message.content.slice(prefix.length + 5);
