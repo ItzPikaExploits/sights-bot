@@ -2,7 +2,7 @@ const discord = require('discord.js');
 var client = new discord.Client;
 client.on("ready", () => {
     console.log("Ready!");
-    client.user.setGame("discord.me/sights | ;");
+    client.user.setGame("discord.me/aboverblx | ;");
 });
 const prefix = ";";
 const fs = require("fs");
@@ -20,7 +20,7 @@ client.on("message", (message) => {
         message.channel.send("The bot is active and running v1.3.2! :white_check_mark:")
     };
     if (msg.startsWith(prefix + "invite")) {
-        message.channel.send("Get your friends in! https://discord.me/sights")
+        message.channel.send("Get your friends in! https://discord.me/aboverblx")
     };
     if (msg.startsWith(prefix + "gfp")) {
         let embed = new discord.RichEmbed()
