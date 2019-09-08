@@ -184,7 +184,7 @@ client.on("message", (message) => {
         if (!role) return message.reply(`${role} does not exist!`);
         let gRole = message.guild.roles.find(`name`, role);
         if (!gRole) return message.reply(`Could not find the role, ${role}`)
-        if (rMemeber.roles.has(gRole.id));
+        if (rMember.roles.has(gRole.id));
         await(rMember.addRole(gRole.id));
         let embed = new discord.RichEmbed()
             .setColor("LUMINOUS_VIVID_PINK")
@@ -200,7 +200,7 @@ client.on("message", (message) => {
         if (!role) return message.reply(`${role} does not exist!`);
         let gRole = message.guild.roles.find(`name`, role);
         if (!gRole) return message.reply(`Could not find the role, ${role}`)
-        if (rMemeber.roles.has(gRole.id));
+        if (rMember.roles.has(gRole.id));
         await(rMember.addRole(gRole.id));
         let embed = new discord.RichEmbed()
             .setColor("LUMINOUS_VIVID_PINK")
@@ -216,7 +216,7 @@ client.on("message", (message) => {
         if (!role) return message.reply(`${role} does not exist!`);
         let gRole = message.guild.roles.find(`name`, role);
         if (!gRole) return message.reply(`Could not find the role, ${role}`)
-        if (rMemeber.roles.has(gRole.id));
+        if (rMember.roles.has(gRole.id));
         await(rMember.addRole(gRole.id));
         let embed = new discord.RichEmbed()
             .setColor("LUMINOUS_VIVID_PINK")
@@ -232,7 +232,7 @@ client.on("message", (message) => {
         if (!role) return message.reply(`${role} does not exist!`);
         let gRole = message.guild.roles.find(`name`, role);
         if (!gRole) return message.reply(`Could not find the role, ${role}`)
-        if (rMemeber.roles.has(gRole.id));
+        if (rMember.roles.has(gRole.id));
         await(rMember.addRole(gRole.id));
         let embed = new discord.RichEmbed()
             .setColor("LUMINOUS_VIVID_PINK")
@@ -248,7 +248,7 @@ client.on("message", (message) => {
         if (!role) return message.reply(`${role} does not exist!`);
         let gRole = message.guild.roles.find(`name`, role);
         if (!gRole) return message.reply(`Could not find the role, ${role}`)
-        if (rMemeber.roles.has(gRole.id));
+        if (rMember.roles.has(gRole.id));
         await(rMember.addRole(gRole.id));
         let embed = new discord.RichEmbed()
             .setColor("LUMINOUS_VIVID_PINK")
@@ -264,7 +264,7 @@ client.on("message", (message) => {
         if (!role) return message.reply(`${role} does not exist!`);
         let gRole = message.guild.roles.find(`name`, role);
         if (!gRole) return message.reply(`Could not find the role, ${role}`)
-        if (rMemeber.roles.has(gRole.id));
+        if (rMember.roles.has(gRole.id));
         await(rMember.addRole(gRole.id));
         let embed = new discord.RichEmbed()
             .setColor("LUMINOUS_VIVID_PINK")
