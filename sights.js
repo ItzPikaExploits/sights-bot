@@ -282,6 +282,54 @@ client.on("message", (message) => {
             .setDescription(`${AUTHOR.username}, your current level is ${client.xp[AUTHOR.id].level} and your current XP is ${client.xp[AUTHOR.id].xp}/${client.xp[AUTHOR.id].level * 600}!`)
         message.channel.send(embed);
     };
+    if (msg.startsWith(prefix + "setlvl")) {
+        let rMember = message.guild.member(AUTHOR) || message.guild.members.get(AUTHOR.username);
+        if (!rMember) return message.reply("Could not find this user!");
+        if (rMember.hasPermission("ADMINISTRATOR")) {
+            params = message.content.slice(prefix.length + 7)
+            let LEVELS = Number(params);
+            client.xp[AUTHOR.id].level = LEVELS;
+            fs.writeFile("./xp.json", JSON.stringify(client.xp), (err) => {
+                if (err) console.log("An error has been caught while trying to write in ./xp.json");
+            });
+        }
+    }
+    if (msg.startsWith(prefix + "addlvl")) {
+        let rMember = message.guild.member(AUTHOR) || message.guild.members.get(AUTHOR.username);
+        if (!rMember) return message.reply("Could not find this user!");
+        if (rMember.hasPermission("ADMINISTRATOR")) {
+            params = message.content.slice(prefix.length + 7)
+            let LEVELS = Number(params);
+            client.xp[AUTHOR.id].level = client.xp[AUTHOR.id].level + LEVELS;
+            fs.writeFile("./xp.json", JSON.stringify(client.xp), (err) => {
+                if (err) console.log("An error has been caught while trying to write in ./xp.json");
+            });
+        }
+    }
+    if (msg.startsWith(prefix + "setxp")) {
+        let rMember = message.guild.member(AUTHOR) || message.guild.members.get(AUTHOR.username);
+        if (!rMember) return message.reply("Could not find this user!");
+        if (rMember.hasPermission("ADMINISTRATOR")) {
+            params = message.content.slice(prefix.length + 6)
+            let EXP = Number(params);
+            client.xp[AUTHOR.id].xp = EXP;
+            fs.writeFile("./xp.json", JSON.stringify(client.xp), (err) => {
+                if (err) console.log("An error has been caught while trying to write in ./xp.json");
+            });
+        }
+    }
+    if (msg.startsWith(prefix + "addxp")) {
+        let rMember = message.guild.member(AUTHOR) || message.guild.members.get(AUTHOR.username);
+        if (!rMember) return message.reply("Could not find this user!");
+        if (rMember.hasPermission("ADMINISTRATOR")) {
+            params = message.content.slice(prefix.length + 6)
+            let EXP = Number(params);
+            client.xp[AUTHOR.id].xp = client.xp[AUTHOR.id].xp + EXP;
+            fs.writeFile("./xp.json", JSON.stringify(client.xp), (err) => {
+                if (err) console.log("An error has been caught while trying to write in ./xp.json");
+            });
+        }
+    }
 });
 
 client.login(process.env.BOT_TOKEN);
