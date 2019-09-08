@@ -151,7 +151,8 @@ client.on("message", (message) => {
     if (msg.startsWith("👀")) {
         message.channel.send("Hmm. :eyes:");
     };
-    // Level System
+    // Leveling
+        // System
     let xpAdd = Math.floor(Math.random() * 7) + 8;
     if (!xp[AUTHOR.id]) {
         xp[AUTHOR.id] = {
@@ -175,6 +176,15 @@ client.on("message", (message) => {
             if (err) console.log("An error has been caught while trying to write in ./xp.json");
         });
     }
+        // Commands
+    if (msg.startsWith(prefix + "rank")) {
+        let embed = new discord.RichEmbed()
+            .setColor("LUMINOUS_VIVID_PINK")
+            .setTitle(`Rank: ${AUTHOR.username}`)
+            .setFooter(`${AUTHOR.username}'s current rank`)
+            .setDescription(`${AUTHOR.username}, your current level is ${xp[AUTHOR.id].level} and your current XP is ${xp[AUTHOR.id].xp}/${xp[AUTHOR.id].level * 300}!`)
+        message.channel.send(embed);
+    };
 });
 
 client.login(process.env.BOT_TOKEN);
