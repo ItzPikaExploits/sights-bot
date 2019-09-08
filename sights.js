@@ -9,8 +9,10 @@ const fs = require("fs");
 const https = require("https");
 const xml2js = require('xml2js');
 client.memos = require("./memos.json");
+client.xp = require("./xp.json");
 
 client.on("message", (message) => {
+    let AUTHOR = message.author
     if (message.author.bot) return;
     msg = message.content.toLowerCase();
     mention = message.mentions.users.first();
@@ -49,7 +51,7 @@ client.on("message", (message) => {
         // Value Commands
     if (msg.startsWith(prefix + "memo")) {
         editedmessage = message.content.slice(prefix.length + 5);
-        client.memos[message.author.username] = {
+        client.memos[AUTHOR.id] = {
             message: editedmessage
         };
         fs.writeFile("./memos.json", JSON.stringify(client.memos, null, ), err => {
@@ -58,8 +60,8 @@ client.on("message", (message) => {
         });
     };
     if (msg.startsWith(prefix + "readmemo")) {
-        let _MEMO = client.memos[message.author.username].message;
-        message.author.send(_MEMO);
+        let _MEMO = client.memos[AUTHOR.id].message;
+        AUTHOR.send(_MEMO);
         message.channel.send("Sent your memo to your DMs!")
     };
     if (msg.startsWith(prefix + "r34")) {
@@ -149,6 +151,30 @@ client.on("message", (message) => {
     if (msg.startsWith("👀")) {
         message.channel.send("Hmm. :eyes:");
     };
+    // Level System
+    let xpAdd = Math.floor(Math.random() * 7) + 8;
+    if (!xp[AUTHOR.id]) {
+        xp[AUTHOR.id] = {
+            xp: 0,
+            level: 1
+        };
+    }
+    let curXP = xp[AUTHOR.id].xp;
+    let curLVL = xp[AUTHOR.id].level;
+    let nxtLvl = xp[AUTHOR.id].level * 300;
+    xp[AUTHOR.id].xp = curXP + xpAdd;
+    if (nxtLvl >= xp[AUTHOR.id].xp) {
+        xp[AUTHOR.id].level = curLVL + 1;
+        let embed = new discord.RichEmbed()
+            .setColor("LUMINOUS_VIVID_PINK")
+            .setTitle(`Level up: ${AUTHOR.username}`)
+            .setFooter(`${AUTHOR.username} has leveled up!`)
+            .setDescription(`${AUTHOR.username}, you have leveled up to ${xp[AUTHOR.id].level}!`)
+        message.channel.send(embed);
+        fs.writeFile("./xp.json", JSON.stringify(xp), (err) => {
+            if (err) console.log("An error has been caught while trying to write in ./xp.json");
+        });
+    }
 });
 
 client.login(process.env.BOT_TOKEN);
