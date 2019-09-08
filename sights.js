@@ -279,7 +279,7 @@ client.on("message", (message) => {
             .setColor("LUMINOUS_VIVID_PINK")
             .setTitle(`Rank: ${AUTHOR.username}`)
             .setFooter(`${AUTHOR.username}'s current rank`)
-            .setDescription(`${AUTHOR.username}, your current level is ${client.xp[AUTHOR.id].level} and your current XP is ${client.xp[AUTHOR.id].xp}/${client.xp[AUTHOR.id].level * 300}!`)
+            .setDescription(`${AUTHOR.username}, your current level is ${client.xp[AUTHOR.id].level} and your current XP is ${client.xp[AUTHOR.id].xp}/${client.xp[AUTHOR.id].level * 600}!`)
         message.channel.send(embed);
     };
 });
