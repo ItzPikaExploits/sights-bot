@@ -185,7 +185,7 @@ client.on("message", (message) => {
         let gRole = message.guild.roles.find(`name`, role);
         if (!gRole) return message.reply(`Could not find the role, ${role}`)
         if (rMember.roles.has(gRole.id));
-        await(rMember.addRole(gRole.id));
+        rMember.addRole(gRole.id);
         let embed = new discord.RichEmbed()
             .setColor("LUMINOUS_VIVID_PINK")
             .setTitle(`Rank up: ${AUTHOR.username}`)
@@ -201,7 +201,7 @@ client.on("message", (message) => {
         let gRole = message.guild.roles.find(`name`, role);
         if (!gRole) return message.reply(`Could not find the role, ${role}`)
         if (rMember.roles.has(gRole.id));
-        await(rMember.addRole(gRole.id));
+        rMember.addRole(gRole.id);
         let embed = new discord.RichEmbed()
             .setColor("LUMINOUS_VIVID_PINK")
             .setTitle(`Rank up: ${AUTHOR.username}`)
@@ -217,7 +217,7 @@ client.on("message", (message) => {
         let gRole = message.guild.roles.find(`name`, role);
         if (!gRole) return message.reply(`Could not find the role, ${role}`)
         if (rMember.roles.has(gRole.id));
-        await(rMember.addRole(gRole.id));
+        rMember.addRole(gRole.id);
         let embed = new discord.RichEmbed()
             .setColor("LUMINOUS_VIVID_PINK")
             .setTitle(`Rank up: ${AUTHOR.username}`)
@@ -233,7 +233,7 @@ client.on("message", (message) => {
         let gRole = message.guild.roles.find(`name`, role);
         if (!gRole) return message.reply(`Could not find the role, ${role}`)
         if (rMember.roles.has(gRole.id));
-        await(rMember.addRole(gRole.id));
+        rMember.addRole(gRole.id);
         let embed = new discord.RichEmbed()
             .setColor("LUMINOUS_VIVID_PINK")
             .setTitle(`Rank up: ${AUTHOR.username}`)
@@ -249,7 +249,7 @@ client.on("message", (message) => {
         let gRole = message.guild.roles.find(`name`, role);
         if (!gRole) return message.reply(`Could not find the role, ${role}`)
         if (rMember.roles.has(gRole.id));
-        await(rMember.addRole(gRole.id));
+        rMember.addRole(gRole.id);
         let embed = new discord.RichEmbed()
             .setColor("LUMINOUS_VIVID_PINK")
             .setTitle(`Rank up: ${AUTHOR.username}`)
@@ -265,7 +265,7 @@ client.on("message", (message) => {
         let gRole = message.guild.roles.find(`name`, role);
         if (!gRole) return message.reply(`Could not find the role, ${role}`)
         if (rMember.roles.has(gRole.id));
-        await(rMember.addRole(gRole.id));
+        rMember.addRole(gRole.id);
         let embed = new discord.RichEmbed()
             .setColor("LUMINOUS_VIVID_PINK")
             .setTitle(`Rank up: ${AUTHOR.username}`)
