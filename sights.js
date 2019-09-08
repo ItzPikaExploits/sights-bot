@@ -154,23 +154,23 @@ client.on("message", (message) => {
     // Leveling
         // System
     let xpAdd = Math.floor(Math.random() * 7) + 8;
-    if (!xp[AUTHOR.id]) {
-        xp[AUTHOR.id] = {
+    if (!client.xp[AUTHOR.id]) {
+        client.xp[AUTHOR.id] = {
             xp: 0,
             level: 1
         };
     }
-    let curXP = xp[AUTHOR.id].xp;
-    let curLVL = xp[AUTHOR.id].level;
-    let nxtLvl = xp[AUTHOR.id].level * 300;
-    xp[AUTHOR.id].xp = curXP + xpAdd;
-    if (nxtLvl >= xp[AUTHOR.id].xp) {
-        xp[AUTHOR.id].level = curLVL + 1;
+    let curXP = client.xp[AUTHOR.id].xp;
+    let curLVL = client.xp[AUTHOR.id].level;
+    let nxtLvl = client.xp[AUTHOR.id].level * 300;
+    client.xp[AUTHOR.id].xp = curXP + xpAdd;
+    if (nxtLvl >= client.xp[AUTHOR.id].xp) {
+        client.xp[AUTHOR.id].level = curLVL + 1;
         let embed = new discord.RichEmbed()
             .setColor("LUMINOUS_VIVID_PINK")
             .setTitle(`Level up: ${AUTHOR.username}`)
             .setFooter(`${AUTHOR.username} has leveled up!`)
-            .setDescription(`${AUTHOR.username}, you have leveled up to ${xp[AUTHOR.id].level}!`)
+            .setDescription(`${AUTHOR.username}, you have leveled up to ${client.xp[AUTHOR.id].level}!`)
         message.channel.send(embed);
         fs.writeFile("./xp.json", JSON.stringify(xp), (err) => {
             if (err) console.log("An error has been caught while trying to write in ./xp.json");
@@ -182,7 +182,7 @@ client.on("message", (message) => {
             .setColor("LUMINOUS_VIVID_PINK")
             .setTitle(`Rank: ${AUTHOR.username}`)
             .setFooter(`${AUTHOR.username}'s current rank`)
-            .setDescription(`${AUTHOR.username}, your current level is ${xp[AUTHOR.id].level} and your current XP is ${xp[AUTHOR.id].xp}/${xp[AUTHOR.id].level * 300}!`)
+            .setDescription(`${AUTHOR.username}, your current level is ${client.xp[AUTHOR.id].level} and your current XP is ${client.xp[AUTHOR.id].xp}/${client.xp[AUTHOR.id].level * 300}!`)
         message.channel.send(embed);
     };
 });
