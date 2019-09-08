@@ -164,8 +164,9 @@ client.on("message", (message) => {
     let curLVL = client.xp[AUTHOR.id].level;
     let nxtLvl = client.xp[AUTHOR.id].level * 300;
     client.xp[AUTHOR.id].xp = curXP + xpAdd;
-    if (nxtLvl >= client.xp[AUTHOR.id].xp) {
+    if (nxtLvl <= client.xp[AUTHOR.id].xp) {
         client.xp[AUTHOR.id].level = curLVL + 1;
+        client.xp[AUTHOR.id].xp = 0;
         let embed = new discord.RichEmbed()
             .setColor("LUMINOUS_VIVID_PINK")
             .setTitle(`Level up: ${AUTHOR.username}`)
