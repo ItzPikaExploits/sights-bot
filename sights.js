@@ -172,7 +172,7 @@ client.on("message", (message) => {
             .setFooter(`${AUTHOR.username} has leveled up!`)
             .setDescription(`${AUTHOR.username}, you have leveled up to ${client.xp[AUTHOR.id].level}!`)
         message.channel.send(embed);
-        fs.writeFile("./xp.json", JSON.stringify(xp), (err) => {
+        fs.writeFile("./xp.json", JSON.stringify(client.xp), (err) => {
             if (err) console.log("An error has been caught while trying to write in ./xp.json");
         });
     }
