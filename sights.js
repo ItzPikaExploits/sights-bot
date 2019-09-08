@@ -176,102 +176,102 @@ client.on("message", (message) => {
         fs.writeFile("./xp.json", JSON.stringify(client.xp), (err) => {
             if (err) console.log("An error has been caught while trying to write in ./xp.json");
         });
-    }
-    if (client.xp[AUTHOR.id].level == 5) {
-        let rMember = message.guild.member(AUTHOR) || message.guild.members.get(AUTHOR.username);
-        if (!rMember) return message.reply("Failed to find the person that needs the rank role.");
-        let role = "👌 E-Tier 👌";
-        if (!role) return message.reply(`${role} does not exist!`);
-        let gRole = message.guild.roles.find(`name`, role);
-        if (!gRole) return message.reply(`Could not find the role, ${role}`)
-        if (rMember.roles.has(gRole.id));
-        rMember.addRole(gRole.id);
-        let embed = new discord.RichEmbed()
-            .setColor("LUMINOUS_VIVID_PINK")
-            .setTitle(`Rank up: ${AUTHOR.username}`)
-            .setFooter(`${AUTHOR.username} has ranked up!`)
-            .setDescription(`${AUTHOR.username}, you have ranked up to ${role}!`)
-        message.channel.send(embed);
-    }
-    if (client.xp[AUTHOR.id].level == 10) {
-        let rMember = message.guild.member(AUTHOR) || message.guild.members.get(AUTHOR.username);
-        if (!rMember) return message.reply("Failed to find the person that needs the rank role.");
-        let role = "😂 D-Tier 😂";
-        if (!role) return message.reply(`${role} does not exist!`);
-        let gRole = message.guild.roles.find(`name`, role);
-        if (!gRole) return message.reply(`Could not find the role, ${role}`)
-        if (rMember.roles.has(gRole.id));
-        rMember.addRole(gRole.id);
-        let embed = new discord.RichEmbed()
-            .setColor("LUMINOUS_VIVID_PINK")
-            .setTitle(`Rank up: ${AUTHOR.username}`)
-            .setFooter(`${AUTHOR.username} has ranked up!`)
-            .setDescription(`${AUTHOR.username}, you have ranked up to ${role}!`)
-        message.channel.send(embed);
-    }
-    if (client.xp[AUTHOR.id].level == 15) {
-        let rMember = message.guild.member(AUTHOR) || message.guild.members.get(AUTHOR.username);
-        if (!rMember) return message.reply("Failed to find the person that needs the rank role.");
-        let role = "👍 C-Tier 👍";
-        if (!role) return message.reply(`${role} does not exist!`);
-        let gRole = message.guild.roles.find(`name`, role);
-        if (!gRole) return message.reply(`Could not find the role, ${role}`)
-        if (rMember.roles.has(gRole.id));
-        rMember.addRole(gRole.id);
-        let embed = new discord.RichEmbed()
-            .setColor("LUMINOUS_VIVID_PINK")
-            .setTitle(`Rank up: ${AUTHOR.username}`)
-            .setFooter(`${AUTHOR.username} has ranked up!`)
-            .setDescription(`${AUTHOR.username}, you have ranked up to ${role}!`)
-        message.channel.send(embed);
-    }
-    if (client.xp[AUTHOR.id].level == 20) {
-        let rMember = message.guild.member(AUTHOR) || message.guild.members.get(AUTHOR.username);
-        if (!rMember) return message.reply("Failed to find the person that needs the rank role.");
-        let role = "❤️ B-Tier ❤️";
-        if (!role) return message.reply(`${role} does not exist!`);
-        let gRole = message.guild.roles.find(`name`, role);
-        if (!gRole) return message.reply(`Could not find the role, ${role}`)
-        if (rMember.roles.has(gRole.id));
-        rMember.addRole(gRole.id);
-        let embed = new discord.RichEmbed()
-            .setColor("LUMINOUS_VIVID_PINK")
-            .setTitle(`Rank up: ${AUTHOR.username}`)
-            .setFooter(`${AUTHOR.username} has ranked up!`)
-            .setDescription(`${AUTHOR.username}, you have ranked up to ${role}!`)
-        message.channel.send(embed);
-    }
-    if (client.xp[AUTHOR.id].level == 25) {
-        let rMember = message.guild.member(AUTHOR) || message.guild.members.get(AUTHOR.username);
-        if (!rMember) return message.reply("Failed to find the person that needs the rank role.");
-        let role = "🔥 A-Tier 🔥";
-        if (!role) return message.reply(`${role} does not exist!`);
-        let gRole = message.guild.roles.find(`name`, role);
-        if (!gRole) return message.reply(`Could not find the role, ${role}`)
-        if (rMember.roles.has(gRole.id));
-        rMember.addRole(gRole.id);
-        let embed = new discord.RichEmbed()
-            .setColor("LUMINOUS_VIVID_PINK")
-            .setTitle(`Rank up: ${AUTHOR.username}`)
-            .setFooter(`${AUTHOR.username} has ranked up!`)
-            .setDescription(`${AUTHOR.username}, you have ranked up to ${role}!`)
-        message.channel.send(embed);
-    }
-    if (client.xp[AUTHOR.id].level == 30) {
-        let rMember = message.guild.member(AUTHOR) || message.guild.members.get(AUTHOR.username);
-        if (!rMember) return message.reply("Failed to find the person that needs the rank role.");
-        let role = "👑 S-Tier 👑";
-        if (!role) return message.reply(`${role} does not exist!`);
-        let gRole = message.guild.roles.find(`name`, role);
-        if (!gRole) return message.reply(`Could not find the role, ${role}`)
-        if (rMember.roles.has(gRole.id));
-        rMember.addRole(gRole.id);
-        let embed = new discord.RichEmbed()
-            .setColor("LUMINOUS_VIVID_PINK")
-            .setTitle(`Rank up: ${AUTHOR.username}`)
-            .setFooter(`${AUTHOR.username} has ranked up!`)
-            .setDescription(`${AUTHOR.username}, you have ranked up to ${role}!`)
-        message.channel.send(embed);
+        if (client.xp[AUTHOR.id].level == 5) {
+            let rMember = message.guild.member(AUTHOR) || message.guild.members.get(AUTHOR.username);
+            if (!rMember) return message.reply("Failed to find the person that needs the rank role.");
+            let role = "👌 E-Tier 👌";
+            if (!role) return message.reply(`${role} does not exist!`);
+            let gRole = message.guild.roles.find(`name`, role);
+            if (!gRole) return message.reply(`Could not find the role, ${role}`)
+            if (rMember.roles.has(gRole.id));
+            rMember.addRole(gRole.id);
+            let embed = new discord.RichEmbed()
+                .setColor("LUMINOUS_VIVID_PINK")
+                .setTitle(`Rank up: ${AUTHOR.username}`)
+                .setFooter(`${AUTHOR.username} has ranked up!`)
+                .setDescription(`${AUTHOR.username}, you have ranked up to ${role}!`)
+            message.channel.send(embed);
+        }
+        if (client.xp[AUTHOR.id].level == 10) {
+            let rMember = message.guild.member(AUTHOR) || message.guild.members.get(AUTHOR.username);
+            if (!rMember) return message.reply("Failed to find the person that needs the rank role.");
+            let role = "😂 D-Tier 😂";
+            if (!role) return message.reply(`${role} does not exist!`);
+            let gRole = message.guild.roles.find(`name`, role);
+            if (!gRole) return message.reply(`Could not find the role, ${role}`)
+            if (rMember.roles.has(gRole.id));
+            rMember.addRole(gRole.id);
+            let embed = new discord.RichEmbed()
+                .setColor("LUMINOUS_VIVID_PINK")
+                .setTitle(`Rank up: ${AUTHOR.username}`)
+                .setFooter(`${AUTHOR.username} has ranked up!`)
+                .setDescription(`${AUTHOR.username}, you have ranked up to ${role}!`)
+            message.channel.send(embed);
+        }
+        if (client.xp[AUTHOR.id].level == 15) {
+            let rMember = message.guild.member(AUTHOR) || message.guild.members.get(AUTHOR.username);
+            if (!rMember) return message.reply("Failed to find the person that needs the rank role.");
+            let role = "👍 C-Tier 👍";
+            if (!role) return message.reply(`${role} does not exist!`);
+            let gRole = message.guild.roles.find(`name`, role);
+            if (!gRole) return message.reply(`Could not find the role, ${role}`)
+            if (rMember.roles.has(gRole.id));
+            rMember.addRole(gRole.id);
+            let embed = new discord.RichEmbed()
+                .setColor("LUMINOUS_VIVID_PINK")
+                .setTitle(`Rank up: ${AUTHOR.username}`)
+                .setFooter(`${AUTHOR.username} has ranked up!`)
+                .setDescription(`${AUTHOR.username}, you have ranked up to ${role}!`)
+            message.channel.send(embed);
+        }
+        if (client.xp[AUTHOR.id].level == 20) {
+            let rMember = message.guild.member(AUTHOR) || message.guild.members.get(AUTHOR.username);
+            if (!rMember) return message.reply("Failed to find the person that needs the rank role.");
+            let role = "❤️ B-Tier ❤️";
+            if (!role) return message.reply(`${role} does not exist!`);
+            let gRole = message.guild.roles.find(`name`, role);
+            if (!gRole) return message.reply(`Could not find the role, ${role}`)
+            if (rMember.roles.has(gRole.id));
+            rMember.addRole(gRole.id);
+            let embed = new discord.RichEmbed()
+                .setColor("LUMINOUS_VIVID_PINK")
+                .setTitle(`Rank up: ${AUTHOR.username}`)
+                .setFooter(`${AUTHOR.username} has ranked up!`)
+                .setDescription(`${AUTHOR.username}, you have ranked up to ${role}!`)
+            message.channel.send(embed);
+        }
+        if (client.xp[AUTHOR.id].level == 25) {
+            let rMember = message.guild.member(AUTHOR) || message.guild.members.get(AUTHOR.username);
+            if (!rMember) return message.reply("Failed to find the person that needs the rank role.");
+            let role = "🔥 A-Tier 🔥";
+            if (!role) return message.reply(`${role} does not exist!`);
+            let gRole = message.guild.roles.find(`name`, role);
+            if (!gRole) return message.reply(`Could not find the role, ${role}`)
+            if (rMember.roles.has(gRole.id));
+            rMember.addRole(gRole.id);
+            let embed = new discord.RichEmbed()
+                .setColor("LUMINOUS_VIVID_PINK")
+                .setTitle(`Rank up: ${AUTHOR.username}`)
+                .setFooter(`${AUTHOR.username} has ranked up!`)
+                .setDescription(`${AUTHOR.username}, you have ranked up to ${role}!`)
+            message.channel.send(embed);
+        }
+        if (client.xp[AUTHOR.id].level == 30) {
+            let rMember = message.guild.member(AUTHOR) || message.guild.members.get(AUTHOR.username);
+            if (!rMember) return message.reply("Failed to find the person that needs the rank role.");
+            let role = "👑 S-Tier 👑";
+            if (!role) return message.reply(`${role} does not exist!`);
+            let gRole = message.guild.roles.find(`name`, role);
+            if (!gRole) return message.reply(`Could not find the role, ${role}`)
+            if (rMember.roles.has(gRole.id));
+            rMember.addRole(gRole.id);
+            let embed = new discord.RichEmbed()
+                .setColor("LUMINOUS_VIVID_PINK")
+                .setTitle(`Rank up: ${AUTHOR.username}`)
+                .setFooter(`${AUTHOR.username} has ranked up!`)
+                .setDescription(`${AUTHOR.username}, you have ranked up to ${role}!`)
+            message.channel.send(embed);
+        }
     }
         // Commands
     if (msg.startsWith(prefix + "rank")) {
