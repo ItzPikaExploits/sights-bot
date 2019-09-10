@@ -60,7 +60,7 @@ client.on("message", async message => {
         embedSent.react("🎉");
         setTimeout(function() {
             var peopleReacted = embedSent.reactions.get("🎉").users.array();
-            message.channel.send(discord.RichEmbed()
+            message.channel.send(new discord.RichEmbed()
                 .setColor("LUMINOUS_VIVID_PINK")
                 .setTitle(`Test giveaway for "${gaITEM}" has ended!`)
                 .setFooter(`Test giveaway finished.`)
@@ -78,7 +78,7 @@ client.on("message", async message => {
         embedSent.react("🎉");
         setTimeout(function() {
             var peopleReacted = embedSent.reactions.get("🎉").users.array();
-            message.channel.send(discord.RichEmbed()
+            message.channel.send(new discord.RichEmbed()
                 .setColor("LUMINOUS_VIVID_PINK")
                 .setTitle(`Giveaway for "${gaITEM}" has ended!`)
                 .setFooter(`Giveaway finished.`)
