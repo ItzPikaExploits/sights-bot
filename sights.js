@@ -49,6 +49,24 @@ client.on("message", async message => {
         message.channel.send(embed)
     }
         // Value Commands
+    if (msg.startsWith(`${prefix}testgiveaway`)) {
+        gaITEM = message.content.slice(prefix.length + 13);
+        let embed = new discord.RichEmbed()
+            .setColor("LUMINOUS_VIVID_PINK")
+            .setTitle(`Test giveaway started by ${AUTHOR.username}!`)
+            .setFooter(`${AUTHOR.username} started a test giveaway!`)
+            .setDescription(gaITEM)
+        var embedSent = await message.channel.send(embed);
+        embedSent.react("🎉");
+        setTimeout(function() {
+            var peopleReacted = embedSent.reactions.get("🎉").users.array();
+            message.channel.send(discord.RichEmbed()
+                .setColor("LUMINOUS_VIVID_PINK")
+                .setTitle(`Test giveaway for "${gaITEM}" has ended!`)
+                .setFooter(`Test giveaway finished.`)
+                .setDescription(`${peopleReacted[1]} has won the test giveaway for "${gaITEM}"!`))
+        }, 30 * 1000)
+    }
     if (msg.startsWith(`${prefix}giveaway`)) {
         gaITEM = message.content.slice(prefix.length + 9);
         let embed = new discord.RichEmbed()
@@ -65,7 +83,7 @@ client.on("message", async message => {
                 .setTitle(`Giveaway for "${gaITEM}" has ended!`)
                 .setFooter(`Giveaway finished.`)
                 .setDescription(`${peopleReacted[1]} has won the giveaway for "${gaITEM}"!`))
-        }, 300000)
+        }, 300 * 1000)
     }
     if (msg.startsWith(prefix + "memo")) {
         editedmessage = message.content.slice(prefix.length + 5);
