@@ -34,6 +34,7 @@ client.on("message", async message => {
         message.channel.send(embed)
     };
     if (msg.startsWith(prefix + "obfuscate")) {
+        message.delete();
         let embed = new discord.RichEmbed()
         .setColor("AQUA")
         .setTitle("Obfuscation Instructions")
