@@ -107,7 +107,9 @@ client.on("message", async message => {
                         break;
                 }
             }).catch(collected => {
-                return message.channel.send(`I could **not** add you to this role!`);
+                console.log(collected)
+                message.channel.send(`I could **not** add you to this role!`);
+                return 
             })
         });
     }
