@@ -2,7 +2,7 @@ const discord = require('discord.js');
 var client = new discord.Client;
 client.on("ready", () => {
     console.log("discord-sights-bot is ready!");
-    client.user.setGame("discord.me/aboverblx | ; | Running the latest version!");
+    client.user.setGame("discord.me/aboverblx | ; | v0.5.6");
 });
 const prefix = ";";
 const fs = require("fs");
