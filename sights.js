@@ -1,16 +1,16 @@
 const discord = require('discord.js');
-let VERSION = "v0.5.8"
 var client = new discord.Client;
-client.on("ready", () => {
-    console.log("discord-sights-bot is ready!");
-    client.user.setGame("discord.me/aboverblx | ; | " + VERSION);
-});
 const prefix = ";";
 const fs = require("fs");
 const https = require("https");
 const xml2js = require('xml2js');
+client.version = "v1.0.2"
 client.memos = require("./memos.json");
 client.xp = require("./xp.json");
+client.on("ready", () => {
+    console.log("discord-sights-bot is ready!");
+    client.user.setGame("discord.me/aboverblx | ; | " + VERSION);
+});
 
 client.on("message", async message => {
     let AUTHOR = message.author
@@ -20,7 +20,7 @@ client.on("message", async message => {
     // Prefix Commands
         // No Value Commands
     if (msg.startsWith(prefix + "check")) {
-        message.channel.send("The bot is active and running ".. VERSIONwa4 .." :white_check_mark:")
+        message.channel.send("The bot is active and running " + VERSION + " :white_check_mark:")
     };
     if (msg.startsWith(prefix + "invite")) {
         message.channel.send("Get your friends in! https://discord.me/aboverblx")
@@ -401,3 +401,13 @@ client.on("message", async message => {
 });
 
 client.login(process.env.BOT_TOKEN);
+
+while (true) {
+    client.user.setGame("discord.me/aboverblx | ;");
+    setTimeout(function() {
+        client.user.setGame("Currently running on :" + VERSION);
+    }, 10 * 1000)
+    setTimeout(function() {
+        client.user.setGame("Running on Github and Heroku!");
+    }, 10 * 1000)
+}
