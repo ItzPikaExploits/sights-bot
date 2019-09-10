@@ -12,9 +12,12 @@ client.on("ready", () => {
     client.user.setGame("Discord-SIGHTS is ready!")
     setTimeout(function() {
         client.user.setGame("Currently running on :" + client.pack["version"]);
-    }, 5 * 1000)
-    setTimeout(function() {
-        client.user.setGame("discord.me/aboverblx | ;");
+        setTimeout(function() {
+            client.user.setGame("Running using Github and Heroku!");
+            setTimeout(function() {
+                client.user.setGame("discord.me/aboverblx | ;");
+            }, 5 * 1000)
+        }, 5 * 1000)
     }, 5 * 1000)
 });
 
