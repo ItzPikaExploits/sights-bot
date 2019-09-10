@@ -98,7 +98,7 @@ client.on("message", async message => {
                 const REACTION = collected.first();
                 switch (REACTION.emoji.name) {
                     case "🎉":
-                        AUTHOR.addRole(A).catch(err => {
+                        message.member.addRole(A).catch(err => {
                             console.log(err);
                             return message.channel.send(`${AUTHOR.username}, an error has appeared while trying to give you a role: **${err.Message}**.`)
                         });
