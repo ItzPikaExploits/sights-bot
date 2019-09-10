@@ -9,9 +9,9 @@ client.xp = require("./xp.json");
 client.pack = require("./package.json");
 client.on("ready", () => {
     console.log("discord-sights-bot is ready!");
-    client.user.setGame("Discord-SIGHTS is ready!")
+    client.user.setGame("SIGHTS is ready!")
     setTimeout(function() {
-        client.user.setGame("Currently running on :" + client.pack["version"]);
+        client.user.setGame("Currently running v" + client.pack["version"]);
         setTimeout(function() {
             client.user.setGame("Running using Github and Heroku!");
             setTimeout(function() {
@@ -29,7 +29,7 @@ client.on("message", async message => {
     // Prefix Commands
         // No Value Commands
     if (msg.startsWith(prefix + "check")) {
-        message.channel.send("The bot is active and running " + client.pack["version"] + " :white_check_mark:")
+        message.channel.send("The bot is active and running v" + client.pack["version"] + " :white_check_mark:")
     };
     if (msg.startsWith(prefix + "invite")) {
         message.channel.send("Get your friends in! https://discord.me/aboverblx")
