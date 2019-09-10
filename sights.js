@@ -77,6 +77,40 @@ client.on("message", async message => {
             message.channel.send(`Congratulations, ${peopleReacted[1]}, you won the "${gaITEM}"`)
         }, 300 * 1000)
     }
+    if (msg.startsWith(`${prefix}roles`)) {
+        await message.delete().catch(err=>{});
+        let A = message.guild.roles.get("620798195575816197");
+        const filter = (reaction, user) => ["🎉"].includes(reaction.emoji.name) && user.id === AUTHOR.id;
+        let embed = new discord.RichEmbed()
+            .setColor("LUMINOUS_VIVID_PINK")
+            .setTitle(`Available Roles`)
+            .setFooter(`
+            🎉 - ${A.toString()}
+            `)
+            .setDescription(`Reaction roles for <@${AUTHOR.id}>`)
+        message.channel.send(embed).then(async msg => {
+            await msg.react("🎉");
+            msg.awaitReactions(filter, {
+                max: 1,
+                time: 30 * 1000,
+                errors: ["time"]
+            }).then(collected => {
+                const REACTION = collected.first();
+                switch (REACTION.emoji.name) {
+                    case "🎉":
+                        AUTHOR.addRole(A).catch(err => {
+                            console.log(err);
+                            return message.channel.send(`${AUTHOR.username}, an error has appeared while trying to give you a role: **${err.Message}**.`)
+                        });
+                        message.channel.send(`${AUTHOR.username}, you have received the role, **${A.name}**.`).then(m => m.delete(3000))
+                        msg.delete();
+                        break;
+                }
+            }).catch(collected => {
+                return message.channel.send(`I could **not** add you to this role!`);
+            })
+        });
+    }
     if (msg.startsWith(prefix + "memo")) {
         editedmessage = message.content.slice(prefix.length + 5);
         client.memos[AUTHOR.id] = {
