@@ -49,6 +49,24 @@ client.on("message", (message) => {
         message.channel.send(embed)
     }
         // Value Commands
+    if (msg.startsWith(`${prefix}giveaway`)) {
+        gaITEM = message.content.slice(prefix.length + 9);
+        let embed = new discord.RichEmbed()
+            .setColor("LUMINOUS_VIVID_PINK")
+            .setTitle(`Giveaway started by ${AUTHOR.username}!`)
+            .setFooter(`${AUTHOR.username} started a giveaway!`)
+            .setDescription(gaITEM)
+        var embedSent = await message.channel.send(embed);
+        embedSent.react("🎉");
+        setTimeout(function() {
+            var peopleReacted = embedSent.reactions.get("🎉").users.array();
+            message.channel.send(discord.RichEmbed()
+                .setColor("LUMINOUS_VIVID_PINK")
+                .setTitle(`Giveaway for "${gaITEM}" has ended!`)
+                .setFooter(`Giveaway finished.`)
+                .setDescription(`${peopleReacted[1]} has won the giveaway for "${gaITEM}"!`))
+        }, 300000)
+    }
     if (msg.startsWith(prefix + "memo")) {
         editedmessage = message.content.slice(prefix.length + 5);
         client.memos[AUTHOR.id] = {
