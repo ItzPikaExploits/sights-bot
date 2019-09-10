@@ -9,16 +9,13 @@ client.xp = require("./xp.json");
 client.pack = require("./package.json");
 client.on("ready", () => {
     console.log("discord-sights-bot is ready!");
-    client.user.setGame("discord.me/aboverblx | ; | " + client.pack["version"]);
-    while (true) {
+    client.user.setGame("Discord-SIGHTS is ready!")
+    setTimeout(function() {
+        client.user.setGame("Currently running on :" + client.pack["version"]);
+    }, 5 * 1000)
+    setTimeout(function() {
         client.user.setGame("discord.me/aboverblx | ;");
-        setTimeout(function() {
-            client.user.setGame("Currently running on :" + client.pack["version"]);
-        }, 10 * 1000)
-        setTimeout(function() {
-            client.user.setGame("Running on Github and Heroku!");
-        }, 10 * 1000)
-    }
+    }, 5 * 1000)
 });
 
 client.on("message", async message => {
