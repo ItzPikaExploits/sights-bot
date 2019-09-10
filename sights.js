@@ -1,8 +1,9 @@
 const discord = require('discord.js');
+let VERSION = "v0.5.8"
 var client = new discord.Client;
 client.on("ready", () => {
     console.log("discord-sights-bot is ready!");
-    client.user.setGame("discord.me/aboverblx | ; | v0.5.7");
+    client.user.setGame("discord.me/aboverblx | ; | " + VERSION);
 });
 const prefix = ";";
 const fs = require("fs");
@@ -19,7 +20,7 @@ client.on("message", async message => {
     // Prefix Commands
         // No Value Commands
     if (msg.startsWith(prefix + "check")) {
-        message.channel.send("The bot is active and running v1.3.2! :white_check_mark:")
+        message.channel.send("The bot is active and running ".. VERSIONwa4 .." :white_check_mark:")
     };
     if (msg.startsWith(prefix + "invite")) {
         message.channel.send("Get your friends in! https://discord.me/aboverblx")
