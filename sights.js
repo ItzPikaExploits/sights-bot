@@ -1,7 +1,7 @@
 const discord = require('discord.js');
 var client = new discord.Client;
 client.on("ready", () => {
-    console.log("Ready!");
+    console.log("discord-sights-bot is ready!");
     client.user.setGame("discord.me/aboverblx | ;");
 });
 const prefix = ";";
@@ -11,7 +11,7 @@ const xml2js = require('xml2js');
 client.memos = require("./memos.json");
 client.xp = require("./xp.json");
 
-client.on("message", (message) => {
+client.on("message", async message => {
     let AUTHOR = message.author
     if (message.author.bot) return;
     msg = message.content.toLowerCase();
