@@ -53,36 +53,28 @@ client.on("message", async message => {
         gaITEM = message.content.slice(prefix.length + 13);
         let embed = new discord.RichEmbed()
             .setColor("LUMINOUS_VIVID_PINK")
-            .setTitle(`Test giveaway started by ${AUTHOR.username}!`)
+            .setTitle(`${gaITEM}`)
             .setFooter(`${AUTHOR.username} started a test giveaway!`)
-            .setDescription(gaITEM)
+            .setDescription(`React with 🎉 to enter!`)
         var embedSent = await message.channel.send(embed);
         embedSent.react("🎉");
         setTimeout(function() {
             var peopleReacted = embedSent.reactions.get("🎉").users.array();
-            message.channel.send(new discord.RichEmbed()
-                .setColor("LUMINOUS_VIVID_PINK")
-                .setTitle(`Test giveaway for "${gaITEM}" has ended!`)
-                .setFooter(`Test giveaway finished.`)
-                .setDescription(`${peopleReacted[1]} has won the test giveaway for "${gaITEM}"!`))
+            message.channel.send(`Congratulations, ${peopleReacted[1]}, you won the "${gaITEM}"`)
         }, 30 * 1000)
     }
     if (msg.startsWith(`${prefix}giveaway`)) {
         gaITEM = message.content.slice(prefix.length + 9);
         let embed = new discord.RichEmbed()
             .setColor("LUMINOUS_VIVID_PINK")
-            .setTitle(`Giveaway started by ${AUTHOR.username}!`)
+            .setTitle(`${gaITEM}`)
             .setFooter(`${AUTHOR.username} started a giveaway!`)
-            .setDescription(gaITEM)
+            .setDescription(`React with 🎉 to enter!`)
         var embedSent = await message.channel.send(embed);
         embedSent.react("🎉");
         setTimeout(function() {
             var peopleReacted = embedSent.reactions.get("🎉").users.array();
-            message.channel.send(new discord.RichEmbed()
-                .setColor("LUMINOUS_VIVID_PINK")
-                .setTitle(`Giveaway for "${gaITEM}" has ended!`)
-                .setFooter(`Giveaway finished.`)
-                .setDescription(`${peopleReacted[1]} has won the giveaway for "${gaITEM}"!`))
+            message.channel.send(`Congratulations, ${peopleReacted[1]}, you won the "${gaITEM}"`)
         }, 300 * 1000)
     }
     if (msg.startsWith(prefix + "memo")) {
