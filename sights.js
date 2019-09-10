@@ -2,7 +2,7 @@ const discord = require('discord.js');
 var client = new discord.Client;
 client.on("ready", () => {
     console.log("discord-sights-bot is ready!");
-    client.user.setGame("discord.me/aboverblx | ; | v0.5.6");
+    client.user.setGame("discord.me/aboverblx | ; | v0.5.7");
 });
 const prefix = ";";
 const fs = require("fs");
@@ -59,6 +59,7 @@ client.on("message", async message => {
             .setDescription(`React with 🎉 to enter!`)
         var embedSent = await message.channel.send(embed);
         embedSent.react("🎉");
+        message.delete();
         setTimeout(function() {
             var peopleReacted = embedSent.reactions.get("🎉").users.array();
             message.channel.send(`Congratulations, ${peopleReacted[1]}, you won the "${gaITEM}"`)
@@ -73,6 +74,7 @@ client.on("message", async message => {
             .setDescription(`React with 🎉 to enter!`)
         var embedSent = await message.channel.send(embed);
         embedSent.react("🎉");
+        message.delete();
         setTimeout(function() {
             var peopleReacted = embedSent.reactions.get("🎉").users.array();
             message.channel.send(`Congratulations, ${peopleReacted[1]}, you won the "${gaITEM}"`)
